@@ -1,13 +1,13 @@
 from django.contrib.auth.password_validation import validate_password
-from rest_framework import serializers
-from users.models import User
 from django.core import exceptions as django_exceptions
+from rest_framework import serializers
 from rest_framework.authtoken.models import Token
+
 from news.models import (
     BlogPost,
-    Comment,
 )
 from news.models import Comment
+from users.models import User
 
 
 # ---------start-users------

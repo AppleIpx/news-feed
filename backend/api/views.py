@@ -1,16 +1,23 @@
 from django.contrib.auth.hashers import make_password
+from django.shortcuts import get_object_or_404
+from django_filters.rest_framework import DjangoFilterBackend
+from rest_framework import serializers
 from rest_framework import viewsets, status
 from rest_framework.decorators import action
+from rest_framework.pagination import PageNumberPagination
 from rest_framework.permissions import (
     AllowAny,
     IsAuthenticatedOrReadOnly,
 )
+from rest_framework.response import Response
 from rest_framework.throttling import (
     UserRateThrottle,
     AnonRateThrottle,
 )
-from rest_framework.pagination import PageNumberPagination
-from rest_framework import serializers
+
+from news.models import BlogPost
+from users.models import User
+from .filters import NewsFilter
 from .serializers import (
     UserSerializer,
     PasswordSerializer,
@@ -18,13 +25,7 @@ from .serializers import (
     ShowNewsSerializer,
     ShowNewsListSerializer, CommentsSerializers,
 )
-from django_filters.rest_framework import DjangoFilterBackend
-from django.shortcuts import get_object_or_404
-from rest_framework.response import Response
-from .filters import NewsFilter
-from users.models import User
-from news.models import BlogPost
-from . tasks import thanks_for_sing_up
+from .tasks import thanks_for_sing_up
 
 
 # ----------start-users-----
