@@ -97,11 +97,17 @@ class CommentsSerializers(serializers.ModelSerializer):
 
 
 class CreateNewsSerializers(serializers.ModelSerializer):
+    image = serializers.ImageField(
+        required=False,
+        allow_empty_file=True,
+        default=None
+    )
     class Meta:
         model = BlogPost
         fields = [
             'id',
             'title',
+            'image',
             'text',
             'created_at',
         ]

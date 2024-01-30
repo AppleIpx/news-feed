@@ -12,6 +12,7 @@ class UserAdmin(admin.ModelAdmin):
         'password',
         "first_name",
         "last_name",
+        "is_staff",
     )
     list_display = (
         "pk",
@@ -19,6 +20,7 @@ class UserAdmin(admin.ModelAdmin):
         "username",
         "first_name",
         "last_name",
+        "is_staff",
     )
     list_filter = (
         'first_name',

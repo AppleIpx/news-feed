@@ -16,7 +16,7 @@ class User(AbstractUser):
     )
 
     username = models.CharField(
-        verbose_name="Nickname",
+        verbose_name="Логин",
         max_length=100,
         blank=False,
         unique=True,

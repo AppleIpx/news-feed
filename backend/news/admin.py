@@ -5,6 +5,7 @@ from . import models
 @admin.register(models.BlogPost)
 class BlockPostAdmin(admin.ModelAdmin):
     list_display = (
+        'pk',
         'title',
         'image',
         'created_at',
